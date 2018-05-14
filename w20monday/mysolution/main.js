@@ -1,7 +1,7 @@
 let notif = document.querySelector(".notif")
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    notif.style.bottom = "-100px";
+    notif.style.bottom = "-170px";
     notif.classList.add("slide-up");
   });
 

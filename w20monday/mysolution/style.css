@@ -1,17 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1');
+
 body{
     margin: 0;
+    font-family: 'Gothic A1', sans-serif;
 }
 .notif{
-    border: 2px solid #555555;
+    background-color: #0534ff;
     position: fixed;
     bottom: 0;
-    height: 50px;
-    width: 50vw;
-    transform: translate(50%);
+    height: auto;
+    width: 30vw;
+    left: 50%;
+    transform: translate(-50%);
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+.close-btn{
+    margin-top: 15px;
+    border-width: 0;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 50px;
+    color: white;
+    padding: 8px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+button:focus {
+    outline: none;
 }
 .slide-up{
     animation: slideUp .8s ease-in forwards;
@@ -29,6 +56,6 @@ body{
 
 @keyframes slideDown{
     to{
-        bottom: -100px;
+        bottom: -170px;
     }
 }
