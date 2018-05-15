@@ -27,10 +27,12 @@ function mockify(){
     let newWord = letters.join("");
 
     return newWord;
-    
-
 
 };
+
+String.prototype.mockify = mockify;
+
+document.querySelector('h1').textContent = document.querySelector('h1').textContent.mockify()
 
 /*
 //get the original text
