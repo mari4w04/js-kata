@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To-do list</title>
+    <script src="Speak.js"></script>
+</head>
+<body>
+    <h1>My To-do list</h1>
+    <ul>
+        <li>Pick up the kids</li>
+        <li>Buy milk</li>
+        <li>Do some JavaScript</li>
+        <li>Feed the kids</li>
+        <li>Look at the hsl color format</li>
+        <li>Ignore the kids</li>
+        <li>Feed the cat</li>
+    </ul>
+
+    <h1>Speech API</h1>
+    <p>Make sure your audio is on, then...</p>
+    <button>Press me :-)</button>
+</body>
+<script>
+    
+    
+        let speech = new Speak();
+        document.querySelector("button").addEventListener("click",e=>{
+        speech.setVoice(51)
+        
+        root = document.documentElement;
+        arr = Array.from(root.lastChild.children[1].children);
+        let myText = arr.map(function(el){
+            return el.textContent
+        });
+        speechText = myText.join(" ");
+        speech.speak(speechText)
+        //console.log(speech.getVoices(true))
+    })
+
+</script>
+</html>
