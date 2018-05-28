@@ -32,7 +32,11 @@ function showTweets(data){
         let reTweetList = document.querySelector("#retweet-box");
         let retweeter = reTweetClone.querySelector(".retweeter");
         let isRetweeted2 = reTweetClone.querySelector(".is-retweeted");
-        let retweetedText = reTweetClone.querySelector(".retweeted-text");
+        let retweetedText = reTweetClone.querySelector(".retweeted-text p");
+        let originalTweeter = reTweetClone.querySelector(".original-tweeter");
+        let originalTweeterUsername = reTweetClone.querySelector(".original-tweeter-username");
+        let retweetLink = reTweetClone.querySelector(".retweet-link");
+        let retweeterPhoto = reTweetClone.querySelector(".retweeter-photo");
         
 
         if(tweet.retweeted_status){
@@ -40,6 +44,11 @@ function showTweets(data){
             isRetweeted2.textContent = "It is retweeted";
             text.parentElement.style.display = "none";
             retweetedText.textContent = tweet.retweeted_status.text;
+            originalTweeter.textContent = tweet.retweeted_status.user.name;
+            originalTweeterUsername.textContent = " @"+tweet.retweeted_status.user.screen_name;
+            //retweetLink.setAttribute("href", tweet.retweeted_status.urls.expanded_url);
+            retweeterPhoto.style.backgroundImage = `url(${tweet.retweeted_status.profile_image_url})`;
+            console.log(tweet.retweeted_status.profile_image_url);
         }else{
             text.textContent = tweet.text;
             fullName.textContent = tweet.user.name;
@@ -51,6 +60,7 @@ function showTweets(data){
             retweets.textContent = `Retweets: ${tweet.retweet_count}`;
             likes.textContent = `Favorites: ${tweet.favorite_count}`;
             isRetweeted.textContent = "It is not retweeted";
+            
         }
 
 

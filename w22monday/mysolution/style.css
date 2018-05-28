@@ -1,7 +1,7 @@
 .tweet-card{
     border: 1px solid black;
 }
-.photo{
+.photo, .retweeter-photo{
     height: 50px;
     width: 50px;
     background-size: contain;
