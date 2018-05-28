@@ -9,15 +9,21 @@
 </head>
 <body>
     
-    <div id="tweet-box"></div>
-    <div id="retweet-box"></div>
+    <div class="container">
+        <div id="tweet-box"></div>
+        <div id="retweet-box"></div>
+    </div>
 
     <template id="tweetTemplate">
         <div class="tweet-card">
-            <div class="full-name"></div>
-            <a class="username" href="" target="_blank"></a>
-            <div class="location"></div>
-            <div class="photo"></div>
+            <div class="personal-info">
+                <div class="photo"></div>
+                <div class="user-info">
+                    <div class="full-name"></div>
+                    <a class="username" href="" target="_blank"></a> &middot;
+                    <div class="location"></div>
+                </div>
+            </div>  
             <p class="text"></p>
             <div class="date"></div>
             <span class="retweets"></span>
