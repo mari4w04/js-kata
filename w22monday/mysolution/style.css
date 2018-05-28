@@ -1,0 +1,10 @@
+.tweet-card{
+    border: 1px solid black;
+}
+.photo{
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}

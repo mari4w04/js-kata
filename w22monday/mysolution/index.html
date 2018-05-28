@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="tweet-box"></div>
+    <div id="retweet-box"></div>
+
+    <template id="tweetTemplate">
+        <div class="tweet-card">
+            <div class="full-name"></div>
+            <a class="username" href="" target="_blank"></a>
+            <div class="location"></div>
+            <div class="photo"></div>
+            <p class="text"></p>
+            <div class="date"></div>
+            <span class="retweets"></span>
+            <span class="likes"></span>
+            <div class="is-retweeted"></div>
+        </div>
+         
+    </template>
+
+    <template id="reTweetTemplate">
+        <div class="tweet-card">
+            <span class="retweeter"></span><span>retweeted</span>
+            <div class="retweeted-text">
+                <p></p>
+            </div>
+            <div class="is-retweeted"></div>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+</html>
