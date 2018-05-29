@@ -1,4 +1,4 @@
-let hashtag = "2018";
+let hashtag = "dogs";
 
 function getAllTweets(){
     fetch(`http://kea-alt-del.dk/twitter/api/?hashtag=${hashtag}`)
@@ -11,7 +11,6 @@ function showTweets(data){
     console.log(data);
     let template = document.querySelector("#tweetTemplate").content;
     let reTweetTemplate = document.querySelector("#reTweetTemplate").content;
-
     data.statuses.forEach(function(tweet){
 
         //For non-retweeted tweets
@@ -47,7 +46,7 @@ function showTweets(data){
             originalTweeter.textContent = tweet.retweeted_status.user.name;
             originalTweeterUsername.textContent = " @"+tweet.retweeted_status.user.screen_name;
             //retweetLink.setAttribute("href", tweet.retweeted_status.urls.expanded_url);
-            retweeterPhoto.style.backgroundImage = `url(${tweet.retweeted_status.profile_image_url})`;
+            //retweeterPhoto.style.backgroundImage = `url(${tweet.retweeted_status.profile_image_url})`;
             console.log(tweet.retweeted_status.profile_image_url);
         }else{
             text.textContent = tweet.text;
@@ -55,16 +54,29 @@ function showTweets(data){
             username.textContent = "@"+tweet.user.screen_name;
             username.setAttribute("href", `https://twitter.com/${tweet.user.screen_name}`)
             photo.style.backgroundImage = `url(${tweet.user.profile_image_url})`;
-            location.textContent = tweet.user.location;
-            date.textContent = tweet.created_at;
-            retweets.textContent = `Retweets: ${tweet.retweet_count}`;
-            likes.textContent = `Favorites: ${tweet.favorite_count}`;
-            isRetweeted.textContent = "It is not retweeted";
+            if(location.innerHTML!==null){
+                location.innerHTML = "&middot;" +"  "+ tweet.user.location;
+            }else{
+                location.innerHTML = tweet.user.location;
+            }
+            
+            
+            let m = tweet.created_at.substring(4,7);
+            let d = tweet.created_at.substring(8,10);
+            let h = tweet.created_at.substring(11,13);
+            let min = tweet.created_at.substring(14,16);
+            let y = tweet.created_at.substring(26,30);
+            date.textContent = `${m} ${d} ${y} at ${h}:${min}`;
+            
+            console.log(tweet.created_at);
+            retweets.textContent = tweet.retweet_count;
+            likes.textContent = tweet.favorite_count;
+            //isRetweeted.textContent = "It is not retweeted";
             
         }
 
 
-
+        
         tweetList.appendChild(clone);
         reTweetList.appendChild(reTweetClone);
 
@@ -73,3 +85,13 @@ function showTweets(data){
 };
 
 getAllTweets();
+
+let form = document.querySelector("#hashtag-form");
+form.onsubmit = function(e){
+    e.preventDefault();
+    hashtag = form.hashtag.value;
+    console.log(hashtag);
+    document.querySelector("#tweet-box").innerHTML = "";
+    document.querySelector("#retweet-box").innerHTML = "";   
+    getAllTweets();
+}

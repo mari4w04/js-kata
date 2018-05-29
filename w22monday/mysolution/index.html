@@ -8,8 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="container">
+    <div class="searchbar">
+        <div class="container">
+            <form id="hashtag-form">
+                <input type="text" name="hashtag" placeholder="Search by hashtag">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        
+    </div>
+    <div class="container margin-top tweets">
         <div id="tweet-box"></div>
         <div id="retweet-box"></div>
     </div>
@@ -20,14 +28,16 @@
                 <div class="photo"></div>
                 <div class="user-info">
                     <div class="full-name"></div>
-                    <a class="username" href="" target="_blank"></a> &middot;
+                    <a class="username" href="" target="_blank"></a> 
                     <div class="location"></div>
                 </div>
             </div>  
             <p class="text"></p>
             <div class="date"></div>
-            <span class="retweets"></span>
-            <span class="likes"></span>
+            <div class="social">
+                <ion-icon name="heart-empty"></ion-icon><span class="likes"></span>
+                <ion-icon name="repeat"></ion-icon><span class="retweets"></span>
+            </div>
             <div class="is-retweeted"></div>
         </div>
          
@@ -48,6 +58,7 @@
         </div>
     </template>
 
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
