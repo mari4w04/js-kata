@@ -32,9 +32,12 @@ body{
 .full-name{
     font-weight: 700;
 }
-.username{
+.username, .retweeter, .original-tweeter-username{
     color: #657786;
     text-decoration: none;
+    margin: 0 2px;
+}
+.username{
     margin: 0 5px;
 }
 .user-info{
@@ -52,10 +55,10 @@ body{
 ion-icon{
     margin-right: 5px;
 }
-.likes{
+.likes, .likes2{
     margin-right: 10px;
 }
-.date{
+.date, .date-two{
     font-size: 12px;
     color: #657786;
     margin-bottom: 5px;
@@ -97,4 +100,11 @@ input[type="submit"]{
     font-weight: 700;
     color: #1DA1F2;
     font-size: 14px;
+}
+.retweeted-text{
+    display: flex;
+    margin-top: 20px;
+}
+.retweeter-photo{
+    margin-right: 20px;
 }

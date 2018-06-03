@@ -46,13 +46,23 @@
     <template id="reTweetTemplate">
         
         <div class="tweet-card">
-            <span class="retweeter"></span><span>retweeted</span>
+            <ion-icon name="repeat"></ion-icon><a class="retweeter" href="" target="_blank"></a><span>retweeted</span>
             <!--<a class="retweet-link" href="">-->
                 <div class="retweeted-text">
-                    <span class="original-tweeter"></span><span class="original-tweeter-username"></span>
-                    <div class="retweeter-photo"></div>
-                    <p></p>
+                    <div>
+                        <div class="retweeter-photo"></div>
+                    </div>
+                    <div class="text">
+                        <span class="original-tweeter full-name"></span><a href="" class="original-tweeter-username" target="_blank"></a>
+                        <p></p>
+                        <div class="date-two"></div>
+                        <div class="social">
+                            <ion-icon name="heart-empty"></ion-icon><span class="likes2"></span>
+                            <ion-icon name="repeat"></ion-icon><span class="retweets2"></span>
+                        </div>
+                    </div>
                 </div>
+                
             <!--</a>-->
             <div class="is-retweeted"></div>
         </div>

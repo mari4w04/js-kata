@@ -36,18 +36,39 @@ function showTweets(data){
         let originalTweeterUsername = reTweetClone.querySelector(".original-tweeter-username");
         let retweetLink = reTweetClone.querySelector(".retweet-link");
         let retweeterPhoto = reTweetClone.querySelector(".retweeter-photo");
+        let dateTwo = reTweetClone.querySelector(".date-two");
+        let retweets2 = reTweetClone.querySelector(".retweets2");
+        let likes2 = reTweetClone.querySelector(".likes2");
         
-
+        console.log(tweet.retweeted_status);
         if(tweet.retweeted_status){
             retweeter.textContent = tweet.user.name+" ";
-            isRetweeted2.textContent = "It is retweeted";
+            retweeter.setAttribute("href", "https://www.twitter.com/"+tweet.user.screen_name);
             text.parentElement.style.display = "none";
             retweetedText.textContent = tweet.retweeted_status.text;
             originalTweeter.textContent = tweet.retweeted_status.user.name;
+            originalTweeterUsername.setAttribute("href", "https://www.twitter.com/"+tweet.retweeted_status.user.screen_name);
             originalTweeterUsername.textContent = " @"+tweet.retweeted_status.user.screen_name;
-            //retweetLink.setAttribute("href", tweet.retweeted_status.urls.expanded_url);
-            //retweeterPhoto.style.backgroundImage = `url(${tweet.retweeted_status.profile_image_url})`;
-            console.log(tweet.retweeted_status.profile_image_url);
+            console.log("URL: "+tweet.retweeted_status.entities.urls.expanded_url);
+            //retweetLink.setAttribute("href", tweet.retweeted_status.entities.urls.expanded_url);
+            retweeterPhoto.style.backgroundImage = `url(${tweet.retweeted_status.user.profile_image_url})`;
+            console.log(tweet.retweeted_status.user.profile_image_url);
+
+            let mTwo = tweet.retweeted_status.created_at.substring(4,7);
+            let dTwo = tweet.retweeted_status.created_at.substring(8,10);
+            let hTwo = tweet.retweeted_status.created_at.substring(11,13);
+            let minTwo = tweet.retweeted_status.created_at.substring(14,16);
+            let yTwo = tweet.retweeted_status.created_at.substring(26,30);
+            dateTwo.textContent = `${mTwo} ${dTwo} ${yTwo} at ${hTwo}:${minTwo}`;
+            retweets2.textContent = tweet.retweeted_status.retweet_count;
+            likes2.textContent = tweet.retweeted_status.favorite_count;
+            
+
+            // if(retweetedText.innerHTML==""){
+            //     console.log("PARENT ELEMENT: "+retweetedText.parentElement);
+            // }
+
+            //console.log(dateTwo.textContent);
         }else{
             text.textContent = tweet.text;
             fullName.textContent = tweet.user.name;
@@ -67,16 +88,14 @@ function showTweets(data){
             let min = tweet.created_at.substring(14,16);
             let y = tweet.created_at.substring(26,30);
             date.textContent = `${m} ${d} ${y} at ${h}:${min}`;
+
+            
             
             console.log(tweet.created_at);
             retweets.textContent = tweet.retweet_count;
             likes.textContent = tweet.favorite_count;
-            //isRetweeted.textContent = "It is not retweeted";
-            
+            //isRetweeted.textContent = "It is not retweeted";   
         }
-
-
-        
         tweetList.appendChild(clone);
         reTweetList.appendChild(reTweetClone);
 
